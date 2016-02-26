@@ -1,0 +1,25 @@
+name=mdb
+description=Microhip Debugger
+family=pic32
+
+prefs.programmers.type=section
+prefs.programmers.name=Programmers
+prefs.programmers.mdb.type=section
+prefs.programmers.mdb.name=Microchip Debugger
+
+prefs.programmers.mdb.path.name=Location of mdb.jar
+prefs.programmers.mdb.path.type=fileselect
+prefs.programmers.mdb.path.default.windows=C:\\Program Files (x86)\\Microchip\\MPLABX\\mplab_ide\\lib\\mdb.jar
+prefs.programmers.mdb.path.default.linux=/opt/microchip/mplabx/v3.05/mplab_ide/lib/mdb.jar
+prefs.programmers.mdb.path.default=/opt/microchip/mplabx/v3.05/mplab_ide/lib/mdb.jar
+
+prefs.programmers.mdb.device.name=Device
+prefs.programmers.mdb.device.type=dropdown
+prefs.programmers.mdb.device.options.PICKIT3=picKIT3™
+prefs.programmers.mdb.device.options.Licensed_Debugger=chipKIT PGM™
+prefs.programmers.mdb.device.default=PICKIT3
+
+programmer.method=script
+programmer.script.0=__builtin_ecma::${programmer:root}/mdb.js::PIC${build.mcu}::${build.path}/${filename}.hex
+programmer.ldsuffix=-nobootloader
+

@@ -1,0 +1,19 @@
+Source: mdb
+Section: programmers
+XBSC-Family: pic32
+Priority: extra
+Maintainer: Matt Jenkins <matt@majenko.co.uk>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+
+Package: mdb
+Section: programmers
+Architecture: all
+XBSC-Group: PIC32
+Description: Microchip Debugger
+ This programmer uses the Microchip Debugger (MDB) software packaged with MPLAB-X.
+ .
+ To use it you will need to set the preferences to point it to where the "mdb.jar" file is located in your MPLAB-X installation.
+
+
+
