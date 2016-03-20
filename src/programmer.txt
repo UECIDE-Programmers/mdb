@@ -16,7 +16,8 @@ prefs.programmers.mdb.path.default=/opt/microchip/mplabx/v3.05/mplab_ide/lib/mdb
 prefs.programmers.mdb.device.name=Device
 prefs.programmers.mdb.device.type=dropdown
 prefs.programmers.mdb.device.options.PICKIT3=picKIT3™
-prefs.programmers.mdb.device.options.Licensed_Debugger=chipKIT PGM™
+prefs.programmers.mdb.device.options.LicensedProgrammer=chipKIT PGM™
+prefs.programmers.mdb.device.options.REALICE=Real ICE™
 prefs.programmers.mdb.device.default=PICKIT3
 
 programmer.method=script

@@ -3,6 +3,10 @@ function run(part, file) {
     importClass(org.uecide.Base);
     importClass(java.lang.System);
     importClass(org.uecide.Preferences);
+//    importClass(java.io.ByteArrayOutputStream);
+//    importClass(java.io.PrintStream);
+//    importClass(java.io.FileOutputStream);
+
     var jarfile = Preferences.get("programmers.mdb.path");
     var programmer = Preferences.get("programmers.mdb.device");
     if (jarfile == null) {
@@ -16,6 +20,10 @@ function run(part, file) {
     importClass(com.microchip.mplab.mdb.debugapi.CmdDebugger);
     importClass(com.microchip.mplab.mdb.debugapi.ToolFinder);
     importClass(com.microchip.mplab.mdbcore.debugger.Debugger);
+
+//    var baos = new ByteArrayOutputStream();
+//    System.setOut(new PrintStream(baos));
+//    System.setErr(new PrintStream(baos));
 
     var cmdDebugger = new CmdDebugger(part);
     var toolFinder = new ToolFinder();
@@ -32,6 +40,9 @@ function run(part, file) {
 
     if (meta == null) {
         ctx.error("Unable to find device");
+ //       ctx.error(baos.toString());
+//        System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+//        System.setErr(new PrintStream(new FileOutputStream(FileDescriptor.err)));
         return false;
     }
 
@@ -44,16 +55,24 @@ function run(part, file) {
     cmdDebugger.SetToolProperties(properties);
     if (!cmdDebugger.connect(Debugger.CONNECTION_TYPE.PROGRAMMER)) {
         ctx.error("Cannot connect to device");
+//        ctx.error(baos.toString());
+//        System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+//        System.setErr(new PrintStream(new FileOutputStream(FileDescriptor.err)));
         return false;
     }
 
     ctx.bullet2("Uploading program...");
     if (!cmdDebugger.program(file)) {
         ctx.error("Programming failed");
+//        ctx.error(baos.toString());
+//        System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+//        System.setErr(new PrintStream(new FileOutputStream(FileDescriptor.err)));
         cmdDebugger.disconnect();
         return false;
     }
     cmdDebugger.disconnect();
+//    System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+//    System.setErr(new PrintStream(new FileOutputStream(FileDescriptor.err)));
     ctx.bullet("Upload complete");
     return true;
 }
