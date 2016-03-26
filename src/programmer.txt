@@ -1,5 +1,5 @@
 name=mdb
-description=Microhip Debugger
+description=Microhip Debugger (${prefs.programmers.mdb.device.options.${prefs:programmers.mdb.device}})
 family=pic32
 
 prefs.programmers.type=section
